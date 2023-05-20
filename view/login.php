@@ -40,7 +40,7 @@
         <h2>Login</h2>
         <form>
             <div class="form-floating mb-3">
-                <input type="userName" class="form-control" id="loginUserName" placeholder="User name">
+                <input type="email" class="form-control" id="loginUserName" placeholder="User name">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">

@@ -1,0 +1,54 @@
+table Student:
+	student_id: INT NOT NULL PRIMARY KEY,
+	student_name: VARCHAR NOT NULL,
+	student_email:
+	birth: 
+	student_contact: 
+	user_id: liên kết với bảng user.
+
+table Teacher:
+	teacher_id:
+	teacher_name:
+	teacher_email:
+	teacher_contact:
+	user_id: liên kết với bảng user.
+
+table Course(khóa học):
+	course_id:
+	title:
+	describe:
+	
+table User(xác thực & ủy quyền):
+	user_id:
+	email:
+	password:
+	position(chức vụ):
+	access_rights(quyền truy cập):
+
+table Attendance(sự tham dự):
+	attendance_id:
+	class-section: liên kết với bảng class-section
+	student_id: liên kết với bảng student
+	status: 
+	date:
+
+
+table Class-section:
+	class_id:
+	stage(giai đoạn):
+	teacher_id:liên kết với bảng teacher
+	student_id: liên kết với bảng student
+	course_id:liên kết với bảng course
+
+table report(báo cáo):
+	reporrt_id:
+	Attendance_id: liên kết với bảng attendance
+	course_id: liên kết với bảng course
+	student_id: liên kết với bảng student
+	attendance_statistics(thống kê tham dự): 
+
+	
+
+Mỗi Student có thể có 1 hoặc nhiều lớp học phần
+
+Mỗi Teacher có thể có 1 hoặc nhiều lớp học phần

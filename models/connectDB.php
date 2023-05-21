@@ -1,21 +1,10 @@
 <?php
-class ConnectDatabase
-{
-    private $host = 'localhost';
-    private $dbname = 'tlu';
-    private $username = 'root';
-    private $password = '';
-
-    public function __construct()
-    {
-        try {
-            $conn = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "Kết nối thành công!";
-        } catch (Exception $e) {
-            die("Could not connect to the database $this->dbname :" . $e->getMessage());
-        }
+     $host = 'localhost';
+     $dbname = 'tlu';
+     $username = 'root';
+     $password = '';
+     $conn = mysqli_connect($host, $username, $password, $dbname);
+    if(!$conn){
+        die("Ket noi that bai. Vui long kiem tra lai cac thong tin may chu");
     }
-}
-$database = new ConnectDatabase();
 ?>

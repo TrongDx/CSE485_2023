@@ -1,63 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <!-- Link to Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance TLU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../includes/css/style-login.css">
 </head>
-<style>
-    body {
-      background-color: #f8f9fa;
-    }
-
-    .container {
-      margin-top: 100px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .btn-primary {
-      width: 100%;
-    }
-  </style>
-</head>
-
 <body>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <h2>Login</h2>
-        <form>
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="loginUserName" placeholder="User name">
-                <label for="floatingInput">Email address</label>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
+            <div class="container-fluid">
+                <div class="my-logo">
+                    <a class="navbar-brand" href="#">
+                        <img src="../includes/image/logo-tlu.png" alt="" class="img-fluid">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="./login.php">Đăng nhập</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Tìm</button>
+                </form>
+                </div>
             </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="loginPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
-          
-          <div class="text-center mt-3">
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a href="">Lost password?</a>
-          </div>
-        </form>
-      </div>
-    </div>
+        </nav>
 
-  <!-- Link to Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </header>
+    <main class="container mt-5 mb-5">
+        <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
+        <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Sign In</h3>
+                        
+                    </div>
+                    <div class="card-body">
+                        <form action="login-check.php" method="post">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
+                                <input type="text" id="loginUserName" name="loginUserName" class="form-control" placeholder="username" >
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
+                                <input type="password" id="loginPassword" name="loginPassword" class="form-control" placeholder="password" >
+                            </div>
+                            
+                            <div class="row align-items-center remember">
+                                <input type="checkbox">Remember Me
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Login" name="button" id="button" class="btn float-end login_btn">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center ">
+                            Don't have an account?<a href="#" class="text-warning text-decoration-none">Sign Up</a>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="text-warning text-decoration-none">Forgot your password?</a>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </main>
+    <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
+        <h4 class="text-center text-uppercase fw-bold">TLU's attendance</h4>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
-
 </html>

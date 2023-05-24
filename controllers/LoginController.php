@@ -18,11 +18,21 @@ $rs = mysqli_stmt_get_result($stmt);
 if (mysqli_num_rows($rs) > 0) {
     $row = mysqli_fetch_assoc($rs);
     $pass_hash = $row['password'];
-    $postion = $row['position'];
+    $position = $row['position'];
     if ($password == $pass_hash) {
-        if ($postion == 'Teacher') {
+        if ($position == 'Teacher') {
             $_SESSION['Teacher'] = $username;
-            header("location:index.php");
+            header("location:../view/dashboard.php");
+            exit;
+        }
+        if ($position == 'Manager') {
+            $_SESSION['Manager'] = $username;
+            header("location:../view/index.php");
+            exit;
+        }
+        if ($position == 'Student') {
+            $_SESSION['Student'] = $username;
+            header("location:../view/dashboard.php");
             exit;
         }
     } else {

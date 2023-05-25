@@ -14,7 +14,7 @@ table Teacher:
 	user_id: liên kết với bảng user.
 
 table Course(khóa học):
-	course_id:
+	course_id:   
 	title:
 	describe:
 	

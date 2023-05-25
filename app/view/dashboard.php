@@ -44,7 +44,7 @@
 <body>
     <header>
         <?php
-            include '../public/header.php';
+            include './header.php';
         ?>
     </header>
   <div class="container">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2023 at 05:22 AM
+-- Generation Time: May 24, 2023 at 05:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,6 +35,15 @@ CREATE TABLE `attendance` (
   `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `attendance`
+--
+
+INSERT INTO `attendance` (`attendance_id`, `class_section_id`, `student_id`, `status`, `date`) VALUES
+(1, 1, 1, 'Present', '2023-05-24'),
+(2, 1, 2, 'Absent', '2023-05-24'),
+(3, 2, 3, 'Present', '2023-05-24');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +58,15 @@ CREATE TABLE `class_section` (
   `course_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `class_section`
+--
+
+INSERT INTO `class_section` (`class_id`, `stage`, `teacher_id`, `student_id`, `course_id`) VALUES
+(1, 'Intermediate', 101, 1, 1),
+(2, 'Advanced', 102, 2, 2),
+(3, 'Beginner', 103, 3, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -60,6 +78,15 @@ CREATE TABLE `course` (
   `title` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`course_id`, `title`, `description`) VALUES
+(1, 'Introduction to Programming', 'This course provides an introduction to programming concepts.'),
+(2, 'Data Structures and Algorithms', 'This course covers data structures and algorithms in depth.'),
+(3, 'Web Development', 'This course focuses on web development technologies and frameworks.');
 
 -- --------------------------------------------------------
 
@@ -74,6 +101,15 @@ CREATE TABLE `report` (
   `student_id` int(11) DEFAULT NULL,
   `attendance_statistics` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`report_id`, `attendance_id`, `course_id`, `student_id`, `attendance_statistics`) VALUES
+(1, 1, 1, 1, '90%'),
+(2, 2, 1, 2, '85%'),
+(3, 3, 2, 3, '95%');
 
 -- --------------------------------------------------------
 
@@ -90,6 +126,15 @@ CREATE TABLE `student` (
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`student_id`, `student_name`, `student_email`, `birth`, `student_contact`, `user_id`) VALUES
+(1, 'John Doe', 'john.doe@example.com', '1995-08-15', '1234567890', 1001),
+(2, 'Jane Smith', 'jane.smith@example.com', '1998-03-20', '9876543210', 1002),
+(3, 'Mike Johnson', 'mike.johnson@example.com', '1997-11-05', '5555555555', 1003);
+
 -- --------------------------------------------------------
 
 --
@@ -104,6 +149,15 @@ CREATE TABLE `teacher` (
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`teacher_id`, `teacher_name`, `teacher_email`, `teacher_contact`, `user_id`) VALUES
+(101, 'John Smith', 'john.smith@example.com', '1234567890', 1001),
+(102, 'Jane Johnson', 'jane.johnson@example.com', '9876543210', 1002),
+(103, 'Mike Davis', 'mike.davis@example.com', '5555555555', 1003);
+
 -- --------------------------------------------------------
 
 --
@@ -117,6 +171,15 @@ CREATE TABLE `users` (
   `position` varchar(255) DEFAULT NULL,
   `access_rights` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `email`, `password`, `position`, `access_rights`) VALUES
+(1001, 'john.doe@example.com', 'password123', 'manager', 'admin'),
+(1002, 'jane.smith@example.com', 'pass456', 'supervisor', 'moderator'),
+(1003, 'mike.johnson@example.com', 'qwerty', 'employee', 'user');
 
 --
 -- Indexes for dumped tables

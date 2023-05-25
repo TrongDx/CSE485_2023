@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../models/connectDB.php';
+require_once '../libs/connectDB.php';
 
 if (isset($_POST['loginUserName'])) {
    $username = $_POST['loginUserName'];
@@ -8,15 +8,17 @@ if (isset($_POST['loginUserName'])) {
 if (isset($_POST['loginPassword'])) {
     $password = $_POST['loginPassword'];
 }
+$dbConnection = new DBConnection();
+$conn = $dbConnection->getConnection();
 
 $sql = "SELECT * FROM users WHERE username=?";
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, "s", $username);
-mysqli_stmt_execute($stmt);
-$rs = mysqli_stmt_get_result($stmt);
+$stmt = $conn->prepare($sql);
+$stmt->execute([$username]);
+$rs = $stmt->fetchAll();
 
-if (mysqli_num_rows($rs) > 0) {
-    $row = mysqli_fetch_assoc($rs);
+if (count($rs) > 0) {
+    $row = $rs[0];
+    // $row = mysqli_fetch_assoc($rs);
     $pass_hash = $row['password'];
     $position = $row['position'];
     if ($password == $pass_hash) {

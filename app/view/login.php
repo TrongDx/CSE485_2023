@@ -27,7 +27,7 @@
                         <form action="../controllers/LoginController.php" method="post">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
-                                <input type="text" id="loginUserName" name="loginUserName" class="form-control" placeholder="username" >
+                                <input type="email" id="loginUserName" name="loginUserName" class="form-control" placeholder="username" >
                             </div>
 
                             <div class="input-group mb-3">

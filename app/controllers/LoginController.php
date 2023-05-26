@@ -11,7 +11,7 @@ if (isset($_POST['loginPassword'])) {
 $dbConnection = new DBConnection();
 $conn = $dbConnection->getConnection();
 
-$sql = "SELECT * FROM users WHERE username=?";
+$sql = "SELECT * FROM users WHERE email=?";
 $stmt = $conn->prepare($sql);
 $stmt->execute([$username]);
 $rs = $stmt->fetchAll();
@@ -22,18 +22,18 @@ if (count($rs) > 0) {
     $pass_hash = $row['password'];
     $position = $row['position'];
     if ($password == $pass_hash) {
-        if ($position == 'Teacher') {
-            $_SESSION['Teacher'] = $username;
+        if ($position == 'supervisor') {
+            $_SESSION['supervisor'] = $username;
             header("location:../view/dashboard.php");
             exit;
         }
-        if ($position == 'Manager') {
-            $_SESSION['Manager'] = $username;
+        if ($position == 'manager') {
+            $_SESSION['manager'] = $username;
             header("location:../view/index.php");
             exit;
         }
-        if ($position == 'Student') {
-            $_SESSION['Student'] = $username;
+        if ($position == 'employee') {
+            $_SESSION['employee'] = $username;
             header("location:../view/dashboard.php");
             exit;
         }

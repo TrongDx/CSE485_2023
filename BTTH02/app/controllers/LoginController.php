@@ -20,20 +20,20 @@ if (count($rs) > 0) {
     $row = $rs[0];
     // $row = mysqli_fetch_assoc($rs);
     $pass_hash = $row['password'];
-    $position = $row['position'];
+    $role = $row['role'];
     if ($password == $pass_hash) {
-        if ($position == 'supervisor') {
-            $_SESSION['supervisor'] = $username;
+        if ($role == 'teacher') {
+            $_SESSION['teacher'] = $username;
             header("location:../view/dashboard.php");
             exit;
         }
-        if ($position == 'manager') {
+        if ($role == 'manager') {
             $_SESSION['manager'] = $username;
             header("location:../view/index.php");
             exit;
         }
-        if ($position == 'employee') {
-            $_SESSION['employee'] = $username;
+        if ($role == 'student') {
+            $_SESSION['student'] = $username;
             header("location:../view/dashboard.php");
             exit;
         }

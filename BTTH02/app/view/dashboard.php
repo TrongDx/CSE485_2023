@@ -2,10 +2,11 @@
     session_start();
 
     // Kiểm tra xem người dùng đã đăng nhập hay chưa
-    if (!isset($_SESSION['Student'])) {
-        header("location:../view/login.php");
-        exit;
-    }
+
+    if (!isset($_SESSION['teacher']) && !isset($_SESSION['student'])) {
+      header("location:../view/login.php");
+      exit;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

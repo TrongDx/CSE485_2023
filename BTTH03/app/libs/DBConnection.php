@@ -1,5 +1,5 @@
 <?php
-require_once('../app/config/config.php');
+require_once(ROOT_APP.'/config/config.php');
 class DBConnection{
     private $host;
     private $user;
